@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+@import "variables";
+@import "mixins";
+
+body {
+	font-family: $fontInter ;
+}
+.navbar {
+	@include navbar-mixin
+}
+#navBtn1, #navBtn2 {
+	color: $White;
+}
+#navBtn1.active, #navBtn2.active, #navBtn1.active:hover, #navBtn2.active:hover {
+	background-color: $Orange;
+}
+#navBtn1:hover, #navBtn2:hover {
+	background-color: $DarkBlue;
+}
+
+h3 {
+	font-family: $fontSecularOne;
+	text-shadow: 1px 1px $Blue;
+}
+
+.btn-custom {
+	color: $White;
+	background: $Orange;
+}
+
+h5 {
+	font-family: $fontSecularOne;
+	color: $Orange;
+}
+
+.card-img-top {
+	height: 25vh;
+}
+.card-title {
+	font-family: $fontAnton;
+}
+th {
+	font-size: 22px;
+}
+td {
+	vertical-align: middle;
+}
+.centered-column {
+	text-align: center;
+}
+.fa-solid {
+	height: 16px;
+	width: 16px;
+}
+aside {
+	background-color: $DeepBlue;
+	border-right: $OrangeBorder;
+}
+footer {
+	border-top: $OrangeBorder;
+	p {
+		font-size: 1em;
+	}
+}

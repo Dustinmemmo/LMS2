@@ -1,0 +1,8 @@
+@mixin navbar-mixin {
+  background-color: $DeepBlue;
+	font-family: $fontSecularOne;
+	font-size: 1.4em;
+	color: $White;
+	border-bottom: 4px solid $Orange;
+  box-shadow: 0px 1px 10px $DarkBlue;
+}

@@ -1,0 +1,37 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+  <!-- Modal Header -->
+  <div class="modal-header">
+    <h4 class="modal-title">
+			<%=inst.action%> 
+		</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+  </div>
+  <!-- Modal body -->
+  <div class="modal-body row">
+  	<div class="col-sm-12">
+    	<form id="myForm" autocomplete="off" method="<%=viewModel.method%>" action="<%=viewModel.actionUrl%>" novalidate>          
+				<div>
+          <label for="formValRank">Rank</label>
+          <input type="number" class="form-control" name="rank" id="formValRank" placeholder="0" value="<%=inst.rank%>" min="0" max="100" required>
+        </div>
+        <div>
+          <label for="formValName">Team Name</label>
+          <input type="text" class="form-control" name="name" id="formValName" placeholder="Team Name" value="<%=inst.name%>" required>
+        </div>
+				<div>
+          <label for="forValMatches">Matches</label>
+          <input type="number" class="form-control" name="matches" id="forValMatches" placeholder="W-L" value="<%=inst.matches%>" min="0" max="100" required>
+        </div>
+        <div>
+          <label for="forValGames">Games</label>
+          <input type="number" class="form-control" name="games" id="forValGames" placeholder="W-L" value="<%=inst.games%>" min="0" max="100" required>
+        </div> 
+				<div class="modal-footer">
+          <button id="addEditCancelButton" type="button" class="btn btn-danger">Cancel</button>
+          <button id="addEditSubmitButton" type="button" class="btn btn-primary">Submit</button>
+        </div>
+    	</form>						
+  	</div>
+	</div>
+</div>

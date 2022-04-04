@@ -1,99 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
-
-:root {
-	--fontSecularOne: 'Secular One', sans-serif;
-	--fontInter: 'Inter', sans-serif;
-	--fontAnton: 'Anton', sans-serif;
-	--White: #FFFFFF ;
-	--Orange: #FC540C;
-	--Blue: #0C58FC;
-	--DarkBlue: #0044B2;
-	--DeepBlue: #062C7f
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 body {
-	font-family: var(--fontInter) ;
-}
+  font-family: "Inter", sans-serif; }
 
 .navbar {
-	background-color: var(--DeepBlue);
-	font-family: var(--fontSecularOne);
-	font-size: 1.4em;
-	color: var(--White);
-	border-bottom: 4px solid var(--Orange);
-  box-shadow: 0px 1px 10px var(--DarkBlue);
-}
+  background-color: #062C7f;
+  font-family: "Secular One", sans-serif;
+  font-size: 1.4em;
+  color: #FFFFFF;
+  border-bottom: 4px solid #FC540C;
+  box-shadow: 0px 1px 10px #0044B2; }
+
 #navBtn1, #navBtn2 {
-	color: var(--White);
-}
-#navBtn1.active, #navBtn2.active {
-	background-color: var(--Orange);
-}
-#navBtn1.active:hover, #navBtn2.active:hover {
-	background-color: var(--Orange);
-}
+  color: #FFFFFF; }
+
+#navBtn1.active, #navBtn2.active, #navBtn1.active:hover, #navBtn2.active:hover {
+  background-color: #FC540C; }
+
 #navBtn1:hover, #navBtn2:hover {
-	background-color: var(--DarkBlue);
-}
+  background-color: #0044B2; }
 
 h3 {
-	font-family: var(--fontSecularOne);
-	text-shadow: 1px 1px var(--Blue);
-}
+  font-family: "Secular One", sans-serif;
+  text-shadow: 1px 1px #0C58FC; }
+
+.btn-custom {
+	color: #FFFFFF;
+	background-color: #FC540C; }
+
+h5 {
+  font-family: "Secular One", sans-serif;
+  color: #FC540C; }
 
 .card-img-top {
-	height: 25vh;
-}
-.card-title {
-	font-family: var(--fontAnton);
-}
+  height: 25vh; }
 
+.card-title {
+  font-family: "Anton", sans-serif; }
 
 th {
-	font-size: 22px;
-}
+  font-size: 22px; }
+
 td {
-	vertical-align: middle;
-}
+  vertical-align: middle; }
+
 .centered-column {
-	text-align: center;
-}
+  text-align: center; }
+
 .fa-solid {
-	height: 16px;
-	width: 16px;
-}
+  height: 16px;
+  width: 16px; }
 
 aside {
-	background-color: var(--DeepBlue);
-}
-.score-box {
-	color: var(--Blue);
-	width: 100%;
-	height: auto;
-	background: var(--White);
-	border: 2px solid var(--Orange);
-}
-.matchup {
-	font-family: var(--fontAnton);
-	font-size: 20px;
-	color: var(--Blue);
-}
-.score, .location {
-	font-size: 20px;
-}
-#score-label {
-	color: var(--Orange);
-	font-family: var(--fontBungee);
-	font-size: 32px;
-	margin-bottom: 0px;
-	margin-top: 4px;
-}
+  background-color: #062C7f;
+  border-right: 3px solid #FC540C; }
 
 footer {
-	border-top: 3px solid var(--Orange);
-}
-footer > p {
-	font-size: 1em;
-}
+  border-top: 3px solid #FC540C; }
+  footer p {
+    font-size: 1em; }
+
+/*# sourceMappingURL=main.css.map */

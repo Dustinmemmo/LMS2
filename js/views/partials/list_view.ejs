@@ -1,28 +1,26 @@
-<table id='<%=view.list.id%>' class="<%=view.list.tableClasses%>">
-	<!-- COLUMN HEADERS -->
+<table id='<%=viewModel.id%>' class="<%=viewModel.tableClasses%>">
 	<tr class="trow">
-    <% view.columns.forEach( function(col, key){ %>
-			<th class="thead sortable <%=view.list.thClasses%>" data-name="<%=col.name%>"> 
+    <% viewModel.columns.forEach( function(col, key){ %>
+			<th class="thead sortable <%=viewModel.thClasses%>" data-name="<%=col.name%>"> 
 				<%=col.label%> 
 					<i id="<%=col.name%>-asc" class="fa fa-arrow-up" aria-hidden="true" style="display:none"></i>
 					<i id="<%=col.name%>-desc" class="fa fa-arrow-down" aria-hidden="true" style="display:none"></i> 
 			</th>
     <% }); %>      
-    <th class="thead <%=view.list.thClasses%>"> Actions </th>
+    <th class="thead <%=viewModel.thClasses%>"> Actions </th>
   </tr>
-	<!-- ROWS / COLUMNS -->		
 	<% data.forEach(function(de){ %>
-		<tr data-id="<%=de.id%>" data-bs-toggle="popover" >
-			<% view.columns.forEach(function(col){ %>
-				<td>
-					<%=de[col.name]%>
-				</td>
-			<% }); %>	
-			<td class="centered-column">
-				<button class="btn"><i class="fa-solid fa-pen-to-square"></i></button>
-				<button class="btn" data-bs-toggle="modal" data-bs-target="#modalTeamConfirmDelete"><i class="fa-solid fa-trash-can"></i></button>									
+	<tr data-id="<%=de.id%>" data-bs-toggle="popover" >
+		<% view.columns.forEach(function(col){ %>
+			<td>
+				<%=de[col.name]%>
 			</td>
-		</tr>
+		<% }); %>	
+		<td class="centered-column">
+			<button class="btn" data-bs-toggle="modal" data-bs-target="#formContainer"><i class="fa-solid fa-pen-to-square"></i></button>
+			<button class="btn" data-bs-toggle="modal" data-bs-target="#<%=viewModel.deleteModalContainerId%>"><i class="fa-solid fa-trash-can"></i></button>									
+		</td>
+	</tr>
 	<% }); %>
 </table>
    

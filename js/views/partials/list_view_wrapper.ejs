@@ -1,0 +1,48 @@
+<main class="">
+  <div class="row">		
+    <div class="row">
+      <h4> 
+				<%=viewModel.listTitle%> 
+			</h4>
+    </div>
+		
+    <div class="col-8 d-flex justify-content-end">
+      <input id="searchInput" class="w-100" placeholder="Search...">
+      <button id="clearSearch" class="btn btn-custom ml-2">Clear</button>
+    </div>
+     
+    <div class="col-12">
+      <div id="alertCityBaby" class="mt-2"></div>
+      <div id="tableContainer" class="mt-2"></div>
+			<div>
+				<button id="resetView" class="btn btn-custom ml-2">Reset View</button>
+				<button id="createNew" class="btn btn-custom ml-2">Create Team</button>
+				<button id="showModal" class="btn btn-custom ml-2">Show Modal</button>
+			</div>
+    </div>
+  </div>
+</main>
+
+<div class="modal" id="modalTeamConfirmDelete">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Delete This Team?</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <!-- Modal body -->
+      <div class="modal-body">
+        This action can be undone by clicking the "Reset View" button.
+      </div>
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">No</button>
+        <button id="confirmDelete" type="button" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="formContainer">
+</div>

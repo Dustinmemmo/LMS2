@@ -1,32 +1,30 @@
-class LocalStorageService {
+export default class LocalStorageService {
   "use strict"
 
-  constructor(data, key, options = { }) {  
-    this.key = key;  
+  constructor(data, entity, entitySingle, options = {}) {  
+    this._entity = entity;
+		this._entitySingle = entitySingle;
     this.initModel(data, options);
   }
 
-  get sortCol() {
-    return this.model.options.sortCol;
-  }
-  set sortCol(col) {
-    this.model.options.sortCol = col;
-  }
-  get sortDir() {
-    return this.model.options.sortDir;
-  }
-  set sortDir(dir) {
-    this.model.options.sortDir = dir;
-  }
-  set filterStr(filterStr) {
-    this.model.options.filterStr = filterStr;
-  }
-  get filterStr() {
-    return this.model.options.filterStr;
-  }
-  get size() {
-    return this.model.data.length;
-  }
+	get entitySingle() { return this._entitySingle; }
+  get entity() { return this._entity; }
+  get sortCol() { return this.model.options.sortCol; }
+  set sortCol(col) { 
+		this.model.options.sortCol = col;
+		this.store();
+	}
+  get sortDir() { return this.model.options.sortDir; }
+  set sortDir(dir) { 
+		this.model.options.sortDir = dir; 
+		this.store();
+	}
+  set filterStr(str) { 
+		this.model.options.filterStr = str;
+		this.store();
+	}
+  get filterStr() { return this.model.options.filterStr; }
+  get size() { return this.model.data.length; }
 
   set options(opt) {
     this.model.options = {
@@ -42,7 +40,7 @@ class LocalStorageService {
     this.model = { };
     this.model.data = [];
     this.options = options;
-    if (data!=null) {
+    if (data != null) {
       this.model.data = data;
     }
     this.origModel = this.cloneObject(this.model);
@@ -64,12 +62,13 @@ class LocalStorageService {
     this.store();
   }
 
-  async read(getId) {
-    let data = this.model.data.find(element => element.id == getId);
+  async read(id) {
+    let data = this.model.data.find(el => el.id == id);
     if (data === undefined)
       return null;
     else
       return data;
+		// return (data === undefined ? null : data)
   }
 
   async update(obj) {
@@ -80,8 +79,8 @@ class LocalStorageService {
     }
 	}
 
-  async delete(removeId) {
-    let index = this.getItemIndex(removeId);
+  async delete(id) {
+    let index = this.getItemIndex(id);
     this.model.data.splice(index, 1)
     this.store();
   }
@@ -92,17 +91,17 @@ class LocalStorageService {
   }
 
   async clear() {
-    localStorage.removeItem(this.key);
+    localStorage.removeItem(this.entity);
     localStorage.clear();
   }
 
   store() {
-    localStorage[this.key] = JSON.stringify(this.model);
+    localStorage[this.entity] = JSON.stringify(this.model);
   }
 
   retrieve() {
-  	if (localStorage.getItem(this.key) !== null) {
-      this.model = JSON.parse(localStorage[this.key]);
+  	if (localStorage.getItem(this.entity) !== null) {
+      this.model = JSON.parse(localStorage[this.entity]);
       return true;
     }
     return false;
@@ -131,8 +130,8 @@ class LocalStorageService {
 
   filter(filterObj) {
     function filterFunc(team) {
-      for (let key in filterObj) {
-        if (!team[key].toLowerCase().includes(filterObj[key].toLowerCase())) {
+      for (let entity in filterObj) {
+        if (!team[entity].toLowerCase().includes(filterObj[entity].toLowerCase())) {
           return false;
         }
       }
@@ -143,7 +142,11 @@ class LocalStorageService {
   }
 
   getItemIndex(id) {
-    return this.model.data.findIndex(element => element.id == id);
+    return this.model.data.findIndex(item => item.id == id);
+	}
+
+	getItem(id) {
+		return this.model.data.find(item => item.id == id);
 	}
 
   cloneObject(obj) {
