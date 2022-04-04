@@ -131,6 +131,10 @@ export default class ListView extends View {
     $('[data-bs-toggle="popover"]').popover( {
       html: true,
       trigger : 'hover',
+      delay: { 
+        show: 400, 
+        hide: 200
+      },
       title : function() {
         var ix = $(this).attr("data-id");
         let item = that.curData[that.storage.getItemIndex(ix)];
